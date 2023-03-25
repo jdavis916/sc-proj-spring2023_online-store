@@ -18,9 +18,11 @@ Clone repo
 ----------------
 
 `ssh`
+
 git clone git@github.com:jdavis916/sc-proj-spring2023_online-store.git
 
 `https`
+
 git clone https://github.com/jdavis916/sc-proj-spring2023_online-store.git
 
 Make new branch and switch to it
