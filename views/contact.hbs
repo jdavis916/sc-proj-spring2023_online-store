@@ -1,8 +1,92 @@
 <main class="container-fluid {{pageMainClass}}">
 	<section class="row">
 		<div class="col-12">
-			<h1>{{title}}</h1>
-			<p>{{msg}}</p>
+			<div class="container-contact100">
+				<div class="wrap-contact100">
+					<form class="contact100-form validate-form">
+						<span class="contact100-form-title">
+						Say Hello!
+						</span>
+					<div class="wrap-input100 validate-input" data-validate="Name is required">
+						<span class="label-input100">First Name</span>
+						<input class="input100" type="text" name="name" placeholder="First Name">
+						<span class="focus-input100"></span><br>
+						<span class="label-input100">Last Name</span>
+						<input class="input100" type="text" name="name" placeholder="Last Name">
+						<span class="focus-input100"></span>
+					</div>
+					<section>
+						<span class="label-input100">Phone</span>
+						<input class="input100" type="text" name="phone" placeholder="Phone">
+						<span class="focus-input100"></span>
+					</section>
+					<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+						<span class="label-input100">Email</span>
+						<input class="input100" type="text" name="email" placeholder="Enter your email addess">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 input100-select">
+						<span class="label-input100">Needed Services</span>
+					<div>
+						<select class="selection-2 select2-hidden-accessible" name="service" tabindex="-1" aria-hidden="true">
+						<option>Choose Services</option>
+						</select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 189px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-service-ed-container"><span class="select2-selection__rendered" id="select2-service-ed-container" title="Choose Services">Choose Services</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+					</div>
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate="Message is required">
+						<span class="label-input100">Message</span>
+						<textarea class="input100" name="message" placeholder="Your message here..."></textarea>
+						<span class="focus-input100"></span>
+					</div>
+					<div class="container-contact100-form-btn">
+						<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button class="contact100-form-btn">
+						<span>
+						Submit
+						<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+						</button>
+						</div>
+					</div>
+					</form>
+				</div>
+			</div>
+			<section>
+				<div class="card">
+				<img src="..." class="card-img-top" alt="...">
+
+				<div class="card-body">
+					<h5 class="card-title">Card title</h5>
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				</div>
+				</div>
+
+				<div class="card" aria-hidden="true">
+				<img src="..." class="card-img-top" alt="...">
+				<div class="card-body">
+					<h5 class="card-title placeholder-glow">
+					<span class="placeholder col-6"></span>
+					</h5>
+					<p class="card-text placeholder-glow">
+					<span class="placeholder col-7"></span>
+					<span class="placeholder col-4"></span>
+					<span class="placeholder col-4"></span>
+					<span class="placeholder col-6"></span>
+					<span class="placeholder col-8"></span>
+					</p>
+					<a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-6"></a>
+				</div>
+				</div>
+			</section>
+			<ul>
+			<div class="row">
+				<li class="col-4"><label>Address</label></li>
+				<li class="col-4"><label>Phone</label></li>
+				<li class="col-4"><label>Email</label></li>
+			</div>
+			</ul>
 		</div>
 	</section>	
 </main>
