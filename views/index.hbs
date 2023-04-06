@@ -41,33 +41,16 @@
 			</button>
 			</div>
 			</section>
-			<section class="row">
-				<div class="col-4"> 
-					<div class="card" style="width: 18rem;">
-						<a href="#"></a>
-						<img src="..." class="img-fluid" alt="...">
-						<div class="card-body">
-						<p class="card-text">Deal 1</p>
-						</div>
+			<section class="dealsListClass">
+				<div class="row">
+					{{#each dealsList}}
+					<div class="responsive">
+						<p>{{item_id}}</p>
+						<img src="{{img}}">
+						<p>{{price}}</p>
+						<p>{{discount}}</p>
 					</div>
-				</div>
-				<div class="col-4"> 
-					<div class="card" style="width: 18rem;">
-						<a href="#"></a>
-						<img src="..." class="img-fluid" alt="...">
-						<div class="card-body">
-						<p class="card-text">Deal 1</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-4"> 
-					<div class="card" style="width: 18rem;">
-						<a href="#"></a>
-						<img src="..." class="img-fluid" alt="...">
-						<div class="card-body">
-						<p class="card-text">Deal 1</p>
-						</div>
-					</div>
+					{{/each}}
 				</div>
 			</section>
 		</div>

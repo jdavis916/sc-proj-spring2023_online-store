@@ -1,16 +1,27 @@
 <main class="container-fluid {{pageMainClass}}">
 	<section class="row">
 		<div class="col-12">
-			<div class="container">
-				<input class="form-control" id="listSearch" type="text" placeholder="Type something to search list items">
-				<br>
-				<ul class="list-group" id="myList">
-					<li class="list-group-item">First item</li>
-					<li class="list-group-item">Second item</li>
-					<li class="list-group-item">Third item</li>
-					<li class="list-group-item">Fourth item</li>
-				</ul>
-			</div>
+			<section>
+				<h3>Categories</h3>
+				<div>
+					<button id="fresh">FRESH</button>
+					<button id="deli">DELI</button>
+				</div>
+				<div>
+					<button id="pantry">PANTRY</button>
+					<button id="beverages">BEVERAGES</button>
+				</div>
+			</section>
+			<section>
+				<div class="row">
+					{{#each itemsList}}
+					<div class="responsive">
+						<p>{{item_name}}</p>
+						<img src="{{img}}">
+					</div>
+					{{/each}}
+				</div>
+			</section>
 		</div>
 	</section>	
 </main>
