@@ -1,14 +1,15 @@
 //username and password
 
 //items
-export default stubs = {
-    "items": [{
+const stubs = {
+    items: [{
         id: 1, 
         sku: 3245,
         item_name: "generic item1", 
         description: "this is about the item",
         item_category: "meat",
-        price: 45
+        price: 45,
+        img: "/img/1to1ratio.png"
     },
     {
         id: 2, 
@@ -16,7 +17,8 @@ export default stubs = {
         item_name: "generic item2", 
         description: "this is about the item",
         item_category: "produce",
-        price: 30
+        price: 30,
+        img: "/img/1to1ratio.png"
     },
     {
         id: 3, 
@@ -24,9 +26,10 @@ export default stubs = {
         item_name: "generic item3", 
         description: "this is about the item",
         item_category: "kitchen gadget",
-        price: 10
+        price: 10,
+        img: "/img/1to1ratio.png"
     }], 
-    "user": [{
+    user: [{
         id: 1,
         username: "testperson1",
         password: "thewordle"
@@ -41,20 +44,30 @@ export default stubs = {
         username: "testperson3",
         password: "thebasics"
     }],
-    "deals": [{
+    deals: [{
         id: 1,
         itemId: 4,
-        price: 20
+        price: 20,
+        discount: 15,
+        img: "/img/1to1ratio.png"
     },
     {
         id: 2,
         itemId: 9,
-        price: 4
+        price: 4,
+        discount: 2,
+        img: "/img/1to1ratio.png"
     },
     {
         id: 3,
         itemId: 12,
-        price: 12
+        price: 12,
+        discount: 10,
+        img: "/img/1to1ratio.png"
     }]
 };
 //deals
+//exports.stubs = stubs;
+module.exports = {
+    stubs
+}
