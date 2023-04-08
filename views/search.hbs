@@ -2,10 +2,11 @@
 	<section class="row">
 		<div class="col">
 			<form>
-				<p>Search:</p>
+				<label>Search:</label>
 				<input class="form-control" id="listSearch" type="text">
 				<button type="submit" id="searchBar">Submit</button>
 			</form>
+			<span>Results</span>
 			{{#each itemsList}}
 			<figure>
 				<img src="{{img}}">

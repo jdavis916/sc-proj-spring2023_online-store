@@ -2,22 +2,22 @@
 	<section class="row">
 		<div class="col-12">
 			<section>
-				<h3>Categories</h3>
-				<div>
-					<button id="fresh">FRESH</button>
-					<button id="deli">DELI</button>
-				</div>
-				<div>
-					<button id="pantry">PANTRY</button>
-					<button id="beverages">BEVERAGES</button>
-				</div>
+				<form>
+					<input type="text" placeholder="Search Term">
+					<select aria-placeholder="Filters">
+						<option>
+
+						</option>
+					</select>
+					<button type="submit">Submit</button>
+				</form>
 			</section>
-			<section>
+			<section class="catalgoueSetup">
 				<div class="row">
 					{{#each itemsList}}
-					<div class="responsive">
+					<div class="col-6 col-sm-4 col-lg-3">
 						<p>{{item_name}}</p>
-						<img src="{{img}}">
+						<img src="{{img}}" class="img-fluid imgResponsive">
 					</div>
 					{{/each}}
 				</div>

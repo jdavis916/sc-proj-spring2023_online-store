@@ -42,15 +42,16 @@
 			</div>
 			</section>
 			<section class="dealsListClass">
+				<span>Sales/Deals</span>
 				<div class="row">
-					{{#each dealsList}}
-					<div class="responsive">
+					{{#each itemsList}}
+					<div class="col-6 col-sm-4 col-lg-3">
 						<p>{{item_id}}</p>
-						<img src="{{img}}">
+						<img src="{{img}}" class="img-fluid imgResponsive">
 						<p>{{price}}</p>
 						<p>{{discount}}</p>
 					</div>
-					{{/each}}
+				{{/each}}
 				</div>
 			</section>
 		</div>
