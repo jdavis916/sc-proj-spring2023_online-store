@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var dbRoute = "";
 //const stubs = require("../stubs/stubs");
 import { stubs } from "../stubs/stubs";
 /* GET home page */
@@ -9,7 +10,7 @@ router
   	title: 'Simple Node Template',
   	msg: 'This sample template should help get you on your way.',
   	pageMainClass: 'pgHome',
-	dealsList: stubs.deals
+	  itemsList: [...stubs.items, ...stubs.items]
   });
 })
 //catalogue page
@@ -18,7 +19,7 @@ router
 		title: 'Catalogue',
 		msg: 'Catalogue page.',
 		pageMainClass: 'pgCatalogue',
-		itemsList: stubs.items
+		itemsList: [...stubs.items, ...stubs.items]
 	};
 	console.log(stubs);
 	res.render("catalogue", renderObj);
@@ -48,6 +49,10 @@ router
 		itemsList: stubs.items
 	})
 })
+.get(dbRoute, (req, res, next)=> {
+	
+})
+
 ;
 
 module.exports = router;

@@ -13,7 +13,9 @@ center align company name
 right align dropdown menu
 display this section inline
 */
-
+.imgResponsive {
+  width: 100%;
+}
 footer div {
   text-align: center;
 }
@@ -29,16 +31,19 @@ footer div {
   display: flex;
   flex-wrap: wrap;
 }
-.column {
-  flex: 50%;
-  max-width: 50%;
-}
-  @media screen and (max-width: 800px) {
-    .column {
-      flex: 100%;
-      max-width: 100%;
-    }
+@media (max-width: 576px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
   }
-  .listSearch, .searchBar {
+}
+@media (max-width: 992px) {
+  .column {
+    flex: 33.33%;
+    max-width: 33.33%;
+  }
+}
+
+.listSearch, .searchBar {
     display: flex;
   }

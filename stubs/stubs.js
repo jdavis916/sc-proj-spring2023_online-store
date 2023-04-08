@@ -9,6 +9,7 @@ const stubs = {
         description: "this is about the item",
         item_category: "meat",
         price: 45,
+        discount: 30,
         img: "/img/1to1ratio.png"
     },
     {
@@ -27,6 +28,7 @@ const stubs = {
         description: "this is about the item",
         item_category: "kitchen gadget",
         price: 10,
+        discount: 8,
         img: "/img/1to1ratio.png"
     }], 
     user: [{
@@ -44,6 +46,7 @@ const stubs = {
         username: "testperson3",
         password: "thebasics"
     }],
+    /*
     deals: [{
         id: 1,
         itemId: 4,
@@ -65,6 +68,7 @@ const stubs = {
         discount: 10,
         img: "/img/1to1ratio.png"
     }]
+    */
 };
 //deals
 //exports.stubs = stubs;
