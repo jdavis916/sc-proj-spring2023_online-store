@@ -50,7 +50,7 @@ router
 	})
 })
 .get(dbRoute, (req, res, next)=> {
-	
+	  console.log('yo');
 })
 
 ;

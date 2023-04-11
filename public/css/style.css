@@ -19,7 +19,10 @@ display this section inline
 footer div {
   text-align: center;
 }
-
+/*cart page items*/
+.cartList{
+  list-style-type: none;
+}
 .responsive {
   display: flex;
   flex-wrap: wrap;
