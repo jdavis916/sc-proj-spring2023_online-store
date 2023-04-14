@@ -19,7 +19,16 @@ display this section inline
 footer div {
   text-align: center;
 }
-
+/*Cart Page Items*/
+.cartList {
+  list-style-type: square;
+}
+.cartItem, .cartItemInfo {
+  display: flex;
+}
+.cartItemInfo {
+  flex-direction: column;
+}
 .responsive {
   display: flex;
   flex-wrap: wrap;
