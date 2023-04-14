@@ -1,3 +1,13 @@
+/*root styles/variables (dont change)*/
+*{
+  --primary-color: #EF233C;
+  --secondary-color: #D5F2E3;
+  --accent-teal: #73BA9B;
+  --accent-green: #003E1F;
+  --accent-red: #D90429;
+  /*--main-font: 
+  --secondary-font:*/
+}
 /*tag-level styles should be at the top*/
 body {
   /*padding: 50px;*/
