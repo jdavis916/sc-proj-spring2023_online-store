@@ -1,8 +1,21 @@
+/*root styles/variables (dont change)*/
+*{
+  --primary-color: #EF233C;
+  --secondary-color: #D5F2E3;
+  --accent-teal: #73BA9B;
+  --accent-green: #003E1F;
+  --accent-red: #D90429;
+  /*--main-font: 
+  --secondary-font:*/
+}
+/*tag-level styles should be at the top*/
 body {
   /*padding: 50px;*/
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
+footer div {
+  text-align: center;
+}
 /*a {
   color: #00B7FF;
 }*/
@@ -13,13 +26,10 @@ center align company name
 right align dropdown menu
 display this section inline
 */
-.imgResponsive {
-  width: 100%;
-}
-footer div {
-  text-align: center;
-}
-/*Cart Page Items*/
+
+/*Home Page Styles*/
+
+/*Cart Page Styles*/
 .cartList {
   list-style-type: square;
 }
@@ -40,6 +50,18 @@ footer div {
   display: flex;
   flex-wrap: wrap;
 }
+
+/*Catalogue Page Styles*/
+
+/*Contact Page Styles*/
+
+/*Search Page Styles*/
+.listSearch, .searchBar {
+  display: flex;
+}
+
+/*animations and media queries should be at the bottom*/
+
 @media (max-width: 576px) {
   .column {
     flex: 50%;
@@ -53,6 +75,3 @@ footer div {
   }
 }
 
-.listSearch, .searchBar {
-    display: flex;
-  }
