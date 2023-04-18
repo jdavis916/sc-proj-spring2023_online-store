@@ -1,8 +1,5 @@
 console.log("Script file connected");
 //logic for shopping cart
-let subtotal,
-    total,
-    sessionCart;
 
 //get stub items indexed
 
