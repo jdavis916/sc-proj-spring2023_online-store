@@ -13,9 +13,6 @@ body {
   /*padding: 50px;*/
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-footer div {
-  text-align: center;
-}
 /*a {
   color: #00B7FF;
 }*/
@@ -28,16 +25,41 @@ display this section inline
 */
 
 /*Home Page Styles*/
-
+/*
+.carouselHomePage {
+  max-height: 40vh;
+}
+*/
+@media (min-width: 768px) {
+  .carousel-item img {
+    max-height: 300px;
+    width: auto;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+}
+.logo {
+  height: 50px;
+  width: auto;
+}
 /*Cart Page Styles*/
 .cartList {
   list-style-type: square;
 }
 .cartItem, .cartItemInfo {
   display: flex;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 .cartItemInfo {
   flex-direction: column;
+}
+.defaultImg {
+  padding-left: 10px;
+  padding-right: 15px;
+}
+.qtySelector {
+  margin-right: 60px;
 }
 .responsive {
   display: flex;
@@ -46,9 +68,54 @@ display this section inline
   height: auto;
   margin-bottom: 15px;
 }
-.dealsListClass .row, .catalgoueSetup .row {
+.dealsListClass {
+  padding-top: 15px;
+}
+.dealsListClass .row, .catalogueSetup .row {
   display: flex;
   flex-wrap: wrap;
+  padding-top: 15px;
+  padding-bottom: 25px;
+}
+/*.footerTop{
+  padding-top: 15px;
+  text-align: left;
+}
+.footerBottom {
+  padding-bottom: 15px;
+  text-align: right;
+}*/
+.footerWrapper {
+  padding: 15px 15px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.social {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.footerLeft, .footerRight {
+  display: flex;
+  flex-direction: column;
+}
+.cartHeader {
+  padding-top: 15px;
+  padding-bottom: 20px;
+}
+.cartMiddle1 {
+  padding: 15px;
+}
+.cartMiddle2 {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.cartMiddle2 input {
+  padding-left: 15px;
+  padding-right: 10px;
 }
 
 /*Catalogue Page Styles*/
@@ -61,17 +128,14 @@ display this section inline
 }
 
 /*animations and media queries should be at the bottom*/
-
-@media (max-width: 576px) {
-  .column {
-    flex: 50%;
-    max-width: 50%;
+@media (min-width: 768px) {
+  .footerLeft {
+    text-align: left;
+  }
+  .footerRight {
+    text-align: right;
+  }
+  .social {
+    justify-content: flex-end;
   }
 }
-@media (max-width: 992px) {
-  .column {
-    flex: 33.33%;
-    max-width: 33.33%;
-  }
-}
-

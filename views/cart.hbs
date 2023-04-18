@@ -195,14 +195,14 @@
 -->
 <main class="container-fluid {{pageMainClass}}">
   <section class="row">
-    <h2 class="text-center">Your Cart</h2>
-    <div class="col-12">
+    <h2 class="text-center cartHeader">Your Cart</h2>
+    <div class="col-12 cartMiddle1">
       <section class="row">
-        <div class="col-4">
+        <div class="col-4 text-center">
           <h3>Quantity</h3>
           <span>Num</span>
         </div>
-        <div class="col-4 offset-4">
+        <div class="col-4 offset-4 text-center">
           <h3>Subtotal</h3>
           <span>$0.00</span>
         </div>
@@ -210,12 +210,12 @@
     </div>
   </section>
   <!--Cart main list area-->
-  <section class="row">
+  <section class="row cartMiddle2">
     <figure class="col-sm-12 col-md-6 cartItem">
       <input type="checkbox" />
-      <img class="" />
-      <select class="">
-
+      <img class="defaultImg" />
+      <select class="qtySelector">
+        <option>Quantity</option>
       </select>
       <div class="cartItemInfo">
         <span>
@@ -228,9 +228,9 @@
     </figure>
     <figure class="col-sm-12 col-md-6 cartItem">
       <input type="checkbox" />
-      <img class="" />
-      <select class="">
-
+      <img class="defaultImg" />
+      <select class="qtySelector">
+        <option>Quantity</option>
       </select>
       <div class="cartItemInfo">
         <span>
@@ -243,9 +243,9 @@
     </figure>
     <figure class="col-sm-12 col-md-6 cartItem">
       <input type="checkbox" />
-      <img class="" />
-      <select class="">
-
+      <img class="defaultImg" />
+      <select class="qtySelector">
+        <option>Quantity</option>
       </select>
       <div class="cartItemInfo">
         <span>
@@ -258,9 +258,9 @@
     </figure>
     <figure class="col-sm-12 col-md-6 cartItem">
       <input type="checkbox" />
-      <img class="" />
-      <select class="">
-
+      <img class="defaultImg" />
+      <select class="qtySelector">
+        <option>Quantity</option>
       </select>
       <div class="cartItemInfo">
         <span>
@@ -273,13 +273,13 @@
     </figure>
   </section>
   <!--Order Summary Section-->
-  <section>
-    <span>Order Summary</span>
-    <div class="row">
-      <div class="col-12 col-md-3"># of Items</div>
-      <div class="col-12 col-md-3">Discounts</div>
-      <div class="col-6 col-md-3">Total:</div>
-      <button type="submit" class="col-6 col-md-3">Checkout</button>
+  <section  class="row text-center">
+    <label>Order Summary</label>
+    <div class="">
+      <span class="col-12 col-md-3"># of Items</span>
+      <span class="col-12 col-md-3">Discounts</span>
+      <span class="col-6 col-md-3">Total:</span>
+      <button type="submit" class="btn btn-success col-6 col-md-3">Checkout</button>
     </div>
   </section>
 </main>

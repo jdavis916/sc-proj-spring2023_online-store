@@ -19,6 +19,7 @@ const stubs = {
         description: "this is about the item",
         item_category: "produce",
         price: 30,
+        discount: 9,
         img: "/img/1to1ratio.png"
     },
     {
