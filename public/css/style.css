@@ -125,11 +125,26 @@ display this section inline
   display: flex;
   flex-direction: column;
 }
+.orderSummaryLabels, .checkoutButton {
+  padding-top: 30px;
+}
 
 /*Catalogue Page Styles*/
-
+.filterSearch {
+  padding: 30px 0;
+  border-style: solid;
+  border-width: 1px;
+}
+.catalogueItem {
+  padding: 20px 0;
+}
 /*Contact Page Styles*/
-
+.contactPageHeaders {
+  padding: 15px 0;
+}
+.contactInfo span {
+  padding: 10px 0;
+}
 /*Search Page Styles*/
 .listSearch, .searchBar {
   display: flex;
