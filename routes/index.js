@@ -3,6 +3,8 @@ var router = express.Router();
 var dbRoute = "";
 //const stubs = require("../stubs/stubs");
 import { stubs } from "../stubs/stubs";
+import * as DB from "../prisma/query"; //db query functions
+
 /* GET home page */
 router
 .get('/', function(req, res, next) {

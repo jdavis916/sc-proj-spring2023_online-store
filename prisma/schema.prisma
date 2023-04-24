@@ -6,6 +6,23 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
+}
+
+model Item{
+  id Int @id @default(autoincrement())
+  sku Int @unique
+  item_name String
+  description String
+  item_category String 
+  price Int
+  discount Int
+  image String
+}
+
+model User{
+  id Int @id @default(autoincrement())
+  username String @unique
+  password String
 }
