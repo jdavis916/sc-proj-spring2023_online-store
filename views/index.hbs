@@ -45,17 +45,68 @@
 		<div class="col-12">
 			<span>Sales/Deals</span>
 			<div class="row">
-				{{#each itemsList}}
-				<div class="col-6 col-sm-4 col-lg-3">
-					<p>{{item_id}}</p>
-					<img src="{{img}}" class="img-fluid imgResponsive">
-					<figcaption>
-						<del>{{price}}</del>
-						<span>{{discount}}</span>
+			{{#each itemsList}}
+				<div class="col-6 col-sm-4 col-lg-3" id="{{id}}" data-iteminfo='{
+					"id": {{id}}, 
+					"sku": {{sku}},
+					"item_name": {{item_name}}, 
+					"description": {{description}},
+					"item_category": {{item_category}},
+					"price": {{price}},
+					"discount": {{discount}},
+					"img": {{img}}
+				}'>
+					<img src="{{img}}" class="img-fluid groceryImg" data-bs-toggle="modal" data-bs-target="#catalogueItemModal">
+					<figcaption class="row">
+						<span class="col-12">{{item_name}}</span>
+						<del class="col-1">${{price}}</del>
+						<span class="col-1">${{discount}}</span>
+						<input type="number" placerholer="Quantity" class="col-6 offset-2">
+						<button type="button" class="btn btn-primary col">Add to Cart</button>
 					</figcaption>
 				</div>
 			{{/each}}
 			</div>
 		</div>
 	</section>
+	<div class="modal" id="catalogueItemModal" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title"></h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<form>
+					<div class="modal-body row">
+						<img src="" class="col-12">
+						<span class="col-12 text-center">Name</span>
+						<section>
+							<span class="col-6 ">#Sku</span>
+							<span class="col-6">$Price</span>
+						</section>
+						<section class="d-flex">
+							<span class="col-6">Description</span>
+							<div class="col-6">
+								<input type="number" placerholer="Quantity">
+								<button type="button" class="btn btn-primary">Add to Cart</button>
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+							</div>
+						</section>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </main>
+<!--
+<ul>
+<li><img class="myImg" src="images/Husmand.jpg" alt="Husmand, 1900" style="width:100%;max-width:300px"> </li>
+<li> <img class="myImg" src="images/Black Death, 1900.jpg" alt="Black Death, 1900" style="width:100%;max-width:300px"> </li>
+</ul>
+
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+-->

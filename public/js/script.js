@@ -22,3 +22,36 @@ function itemList(stubs.items) {
 //subtotal item price and quantity
 
 //total items with tax / simple * %
+window.addEventListener("load", (event)=>{
+  var groceryItems = document.getElementsByClassName('groceryImg') ?? {};
+    console.log(groceryItems)
+  var groceryData;
+  for (let i = 0; i < groceryItems.length; i++) {
+    groceryData = JSON.parse(JSON.stringify(groceryItems[i].parentElement.dataset.iteminfo))
+    groceryItems[i] ? groceryItems[i].addEventListener("click", function(e) {
+    console.log("click!")
+    }) : ""
+  }
+})
+
+  
+  
+  
+  
+  /*
+  {
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+    image.onclick = function(){
+      modal.style.display = "block";
+      modalImg.src = this.src;
+      captionText.innerHTML = this.alt;
+    }
+
+    var span = document.getElementsByClassName("close")[0];
+
+    span.onclick = function() { 
+      modal.style.display = "none";
+    }
+});
+*/

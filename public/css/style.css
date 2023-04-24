@@ -141,6 +141,7 @@ display this section inline
 /*Contact Page Styles*/
 .contactPageHeaders {
   padding: 15px 0;
+  text-align: center;
 }
 .contactInfo span {
   padding: 10px 0;
