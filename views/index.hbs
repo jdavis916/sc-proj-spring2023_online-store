@@ -49,20 +49,22 @@
 				<div class="col-6 col-sm-4 col-lg-3" id="{{id}}" data-iteminfo='{
 					"id": {{id}}, 
 					"sku": {{sku}},
-					"item_name": {{item_name}}, 
-					"description": {{description}},
-					"item_category": {{item_category}},
+					"item_name": "{{item_name}}", 
+					"description": "{{description}}",
+					"item_category": "{{item_category}}",
 					"price": {{price}},
 					"discount": {{discount}},
-					"img": {{img}}
+					"img": "{{img}}"
 				}'>
 					<img src="{{img}}" class="img-fluid groceryImg" data-bs-toggle="modal" data-bs-target="#catalogueItemModal">
 					<figcaption class="row">
 						<span class="col-12">{{item_name}}</span>
-						<del class="col-1">${{price}}</del>
-						<span class="col-1">${{discount}}</span>
-						<input type="number" placerholer="Quantity" class="col-6 offset-2">
-						<button type="button" class="btn btn-primary col">Add to Cart</button>
+						<div class="col-6">
+							<del>${{price}}</del>
+							<span>${{discount}}</span>
+						</div>
+						<input type="number" placerholer="Quantity" class="col-6">
+						<button type="button" class="btn btn-primary addCartButtonStyle">Add to Cart</button>
 					</figcaption>
 				</div>
 			{{/each}}
@@ -78,14 +80,14 @@
 				</div>
 				<form>
 					<div class="modal-body row">
-						<img src="" class="col-12">
-						<span class="col-12 text-center">Name</span>
-						<section>
-							<span class="col-6 ">#Sku</span>
-							<span class="col-6">$Price</span>
+						<img src="/img/1to1ratio.png" id="modalImg" class="col-12">
+						<span class="col-12 text-center" id="modalName">Name</span>
+						<section class="d-flex justify-content-between">
+							<span class="col-6" id="modalSku">#Sku</span>
+							<span class="col-6" id="modalPrice">$Price</span>
 						</section>
 						<section class="d-flex">
-							<span class="col-6">Description</span>
+							<span class="col-6" id="modalDesc">Description</span>
 							<div class="col-6">
 								<input type="number" placerholer="Quantity">
 								<button type="button" class="btn btn-primary">Add to Cart</button>

@@ -30,6 +30,10 @@ display this section inline
   max-height: 40vh;
 }
 */
+.addCartButtonStyle {
+  width: 125px;
+  margin: auto;
+}
 @media (min-width: 768px) {
   .carousel-item img {
     max-height: 300px;
