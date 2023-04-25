@@ -30,6 +30,10 @@ display this section inline
   max-height: 40vh;
 }
 */
+.addCartButtonStyle {
+  width: 125px;
+  margin: auto;
+}
 @media (min-width: 768px) {
   .carousel-item img {
     max-height: 300px;
@@ -125,11 +129,27 @@ display this section inline
   display: flex;
   flex-direction: column;
 }
+.orderSummaryLabels, .checkoutButton {
+  padding-top: 30px;
+}
 
 /*Catalogue Page Styles*/
-
+.filterSearch {
+  padding: 30px 0;
+  border-style: solid;
+  border-width: 1px;
+}
+.catalogueItem {
+  padding: 20px 0;
+}
 /*Contact Page Styles*/
-
+.contactPageHeaders {
+  padding: 15px 0;
+  text-align: center;
+}
+.contactInfo span {
+  padding: 10px 0;
+}
 /*Search Page Styles*/
 .listSearch, .searchBar {
   display: flex;
