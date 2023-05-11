@@ -30,9 +30,12 @@ display this section inline
   max-height: 40vh;
 }
 */
+.itemNameIndexPage {
+  padding-bottom: 10px;
+}
 .addCartButtonStyle {
   width: 125px;
-  margin: auto;
+  margin: 15px auto;
 }
 @media (min-width: 768px) {
   .carousel-item img {
@@ -154,7 +157,16 @@ display this section inline
 .listSearch, .searchBar {
   display: flex;
 }
-
+/* Modal Styles*/
+#modalImg, #modalName {
+  padding: 10px 0;
+}
+.modalDescription {
+  padding: 10px 0;
+}
+#modalDesc {
+  padding: 0 12px;
+}
 /*animations and media queries should be at the bottom*/
 @media (min-width: 768px) {
   .footerLeft {

@@ -17,11 +17,39 @@
 					{{#each itemsList}}
 					<div class="col-6 col-sm-4 col-lg-3 catalogueItem">
 						<p>{{item_name}}</p>
-						<img src="{{img}}" class="img-fluid">
+						<img src="{{img}}" class="img-fluid groceryImg" data-bs-toggle="modal" data-bs-target="#catalogueItemModal">
 					</div>
 					{{/each}}
 				</div>
 			</section>
 		</div>
-	</section>	
+	</section>
+	<div class="modal" id="catalogueItemModal" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title"></h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<form>
+					<div class="modal-body row">
+						<img src="/img/1to1ratio.png" id="modalImg" class="col-12">
+						<span class="col-12 text-center" id="modalName">Name</span>
+						<section class="d-flex justify-content-between">
+							<span class="col-6" id="modalSku">#Sku</span>
+							<span class="col-6" id="modalPrice">$Price</span>
+						</section>
+						<section class="d-flex">
+							<span class="col-6" id="modalDesc">Description</span>
+							<div class="col-6">
+								<input type="number" placerholer="Quantity">
+								<button type="button" class="btn btn-primary">Add to Cart</button>
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+							</div>
+						</section>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>	
 </main>
