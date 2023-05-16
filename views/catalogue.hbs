@@ -2,8 +2,8 @@
 	<section class="row">
 		<div class="col-12">
 			<section class="row filterSearch">
-				<form>
-					<input type="text" placeholder="Search Term" class="col-12 col-sm-5">
+				<form action="/getCatalogueItems" method="POST">
+					<input type="text" name="search" value="" placeholder="Search Term" class="col-12 col-sm-5">
 					<select aria-placeholder="Filters" class="col-12 col-sm-5">
 						<option>
 							Filters
@@ -42,7 +42,7 @@
 						<section class="d-flex">
 							<span class="col-6" id="modalDesc">Description</span>
 							<div class="col-6">
-								<input type="number" placerholer="Quantity">
+								<input type="number" id="modalQty" placeholder="Quantity">
 								<button type="button" class="btn btn-primary">Add to Cart</button>
 								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 							</div>
