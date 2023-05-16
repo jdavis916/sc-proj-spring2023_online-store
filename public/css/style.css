@@ -167,6 +167,9 @@ display this section inline
 #modalDesc {
   padding: 0 12px;
 }
+#modalQty {
+  margin-bottom: 15px;
+}
 /*animations and media queries should be at the bottom*/
 @media (min-width: 768px) {
   .footerLeft {
