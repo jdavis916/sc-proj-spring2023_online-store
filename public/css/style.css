@@ -5,13 +5,25 @@
   --accent-teal: #73BA9B;
   --accent-green: #003E1F;
   --accent-red: #D90429;
-  /*--main-font: 
-  --secondary-font:*/
+  --main-font: Arial, sans-serif;
+  --secondary-font: "Roboto Mono", monospace;
 }
 /*tag-level styles should be at the top*/
 body {
   /*padding: 50px;*/
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: var(--main-font);
+  font-size: 1.2rem;
+}
+h1,h2,h3{
+  font-family: var(--secondary-font);
+}
+footer{
+  position: absolute;
+  bottom: 0;
+}
+header, footer{
+  /*background-color: var(--secondary-color);*/
+  background-color: var(--primary-color);
 }
 /*a {
   color: #00B7FF;
@@ -23,7 +35,14 @@ center align company name
 right align dropdown menu
 display this section inline
 */
-
+/*footer class styles*/
+.footerLink{
+  display: inline;
+  padding: 0;
+}
+.footerWrapper section > *, .footerWrapper section span > a{
+  color: white;
+}
 /*Home Page Styles*/
 /*
 .carouselHomePage {
@@ -37,17 +56,12 @@ display this section inline
   width: 125px;
   margin: 15px auto;
 }
-@media (min-width: 768px) {
-  .carousel-item img {
-    max-height: 300px;
-    width: auto;
-    max-width: 720px;
-    margin: 0 auto;
-  }
-}
 .logo {
-  height: 50px;
+  height: 80px;
   width: auto;
+}
+.searchBtn{
+  background-color: var(--accent-green);
 }
 /*Cart Page Styles*/
 .cartList {
@@ -172,6 +186,12 @@ display this section inline
 }
 /*animations and media queries should be at the bottom*/
 @media (min-width: 768px) {
+  .carousel-item img {
+    max-height: 300px;
+    width: auto;
+    max-width: 720px;
+    margin: 0 auto;
+  }
   .footerLeft {
     text-align: left;
   }
