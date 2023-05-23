@@ -1,14 +1,16 @@
 <main class="container {{pageMainClass}}">
   <section class="row">
-    <h2 class="text-center cartHeader">Your Cart</h2>
+    <div class="col-12 cartHeader">
+      <h1 class="text-center">Your Cart</h1>
+    </div>
     <div class="col-12 cartMiddle1">
       <section class="row">
-        <div class="col-4 text-center">
-          <h3>Quantity</h3>
+        <div class="col-12 col-sm-6 text-center padB10">
+          <label>Quantity</label><br>
           <span>Num</span>
         </div>
-        <div class="col-4 offset-4 text-center">
-          <h3>Subtotal</h3>
+        <div class="col-12 col-sm-6 text-center">
+          <label>Subtotal</label><br>
           <span>$0.00</span>
         </div>
       </section>
@@ -16,78 +18,37 @@
   </section>
   <!--Cart main list area-->
   <section class="row cartMiddle2">
-    <figure class="col-sm-12 col-md-6 cartItem">
-      <input type="checkbox" />
-      <img class="defaultImg" />
-      <select class="qtySelector">
-        <option>Quantity</option>
-      </select>
-      <div class="cartItemInfo">
-        <span>
-          Item Name
-        </span>
-        <span>
-          Price
-        </span>
-      </div>
-    </figure>
-    <figure class="col-sm-12 col-md-6 cartItem">
-      <input type="checkbox" />
-      <img class="defaultImg" />
-      <select class="qtySelector">
-        <option>Quantity</option>
-      </select>
-      <div class="cartItemInfo">
-        <span>
-          Item Name
-        </span>
-        <span>
-          Price
-        </span>
-      </div>
-    </figure>
-    <figure class="col-sm-12 col-md-6 cartItem">
-      <input type="checkbox" />
-      <img class="defaultImg" />
-      <select class="qtySelector">
-        <option>Quantity</option>
-      </select>
-      <div class="cartItemInfo">
-        <span>
-          Item Name
-        </span>
-        <span>
-          Price
-        </span>
-      </div>
-    </figure>
-    <figure class="col-sm-12 col-md-6 cartItem">
-      <input type="checkbox" />
-      <img class="defaultImg" />
-      <select class="qtySelector">
-        <option>Quantity</option>
-      </select>
-      <div class="cartItemInfo">
-        <span>
-          Item Name
-        </span>
-        <span>
-          Price
-        </span>
-      </div>          
-    </figure>
+    {{#each items}}
+      <figure class="col-sm-12 col-md-6 cartItem">
+        <img class="defaultImg" src="/img/1to1ratio.png" />
+        <div class="cartItemInfo">
+          <span>
+            Item Name
+          </span>
+          <span>
+            Price
+          </span>
+        </div>
+        <input class="form-control qtySelector" type="number"/>
+        <div class="text-center my-auto">
+          <input type="checkbox" class="itemConfirm"/>
+        </div>
+      </figure>
+    {{/each}}
   </section>
   <!--Order Summary Section-->
-  <section  class="row text-center">
-    <label>Order Summary</label>
-    <div class="col-6 col-md-9 orderSummaryLabels">
+  <section  class="row text-center rowTB10">
+    <div class="col-12">
+      <label>Order Summary</label>
+    </div>
+    <div class="col-12 col-md-9 orderSummaryLabels">
       <div class="row">
         <span class="col-md-4"># of Items</span>
         <span class="col-md-4">Discounts</span>
         <span class="col-md-4">Total:</span>
       </div>
     </div>
-    <div class="col-6 col-md-3 checkoutButton">
+    <div class="col-12 col-md-3 checkoutButton">
       <button type="submit" class="btn btn-success">Checkout</button>
     </div>
   </section>

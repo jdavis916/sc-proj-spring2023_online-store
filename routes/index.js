@@ -31,7 +31,8 @@ router
 	res.render("cart", {
 		title: 'Cart',
 		msg: 'Cart page.',
-		pageMainClass: 'pgCart'
+		pageMainClass: 'pgCart',
+		items: [1,2,3]
 	})
 })
 //contact page
