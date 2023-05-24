@@ -23,12 +23,11 @@ function itemList(stubs.items) {
 
 //total items with tax / simple * %
 window.addEventListener("load", (event)=>{
+  let cartData;
   var groceryItems = document.getElementsByClassName('groceryImg') ?? {};
-    console.log(groceryItems)
   for (let i = 0; i < groceryItems.length; i++) {
     groceryItems[i] ? groceryItems[i].addEventListener("click", function(e) {
       let groceryData = JSON.parse(JSON.parse(JSON.stringify(groceryItems[i].parentElement.dataset.iteminfo)));
-      console.log("click!");
       buildModal(groceryData);
     }) : ""
   }
@@ -36,11 +35,28 @@ window.addEventListener("load", (event)=>{
   const buildModal = (data)=> {
     console.log(data);
     document.getElementById('modalImg').src = data.img;
+    document.getElementById('modalItemId').value = data.id;
     document.getElementById('modalSku').innerHTML = data.sku;
     document.getElementById('modalName').innerHTML = data.item_name;
     document.getElementById('modalPrice').innerHTML = data.price;
     document.getElementById('modalDesc').innerHTML = data.description;
   }
+  document.getElementById('modalSubmit') ?
+  document.getElementById('modalSubmit').addEventListener("click", function(e) {
+    cartData = {
+      "img": document.getElementById('modalImg').src,
+      "id": document.getElementById('modalItemId').value,
+      "sku": document.getElementById('modalSku').innerHTML,
+      "name": document.getElementById('modalName').innerHTML,
+      "price": document.getElementById('modalPrice').innerHTML,
+      "desc": document.getElementById('modalDesc').innerHTML,
+      "qty": document.getElementById('modalQty').value
+    }
+    document.cookie ? 
+    document.cookie = `${document.cookie + JSON.stringify(cartData)+ '**'}`:
+    document.cookie = `items=${JSON.stringify(cartData)+ '**'}`;
+    console.table(document.cookie);
+  }): ''
 })
   
   
