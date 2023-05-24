@@ -1,3 +1,12 @@
+import { PrismaClient } from '@prisma/client';
+const prisma = new PrismaClient();
+import { postData } from './prisma/query';
+import { dbItems } from './prisma/initData';
+
+/*refresh db items*/
+//postData(dbItems);
+
+let s3Url = "https://scfinalwinter2023.s3.amazonaws.com/item_img/img_";
 let createError = require('http-errors');
 let express = require('express');
 let path = require('path');
@@ -70,5 +79,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;

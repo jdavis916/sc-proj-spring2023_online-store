@@ -16,7 +16,7 @@ model Item{
   item_name String
   description String
   item_category String 
-  price Int
+  price String
   discount Int
   image String
 }

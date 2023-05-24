@@ -5,7 +5,7 @@ CREATE TABLE `Item` (
     `item_name` VARCHAR(191) NOT NULL,
     `description` VARCHAR(191) NOT NULL,
     `item_category` VARCHAR(191) NOT NULL,
-    `price` INTEGER NOT NULL,
+    `price` VARCHAR(191) NOT NULL,
     `discount` INTEGER NOT NULL,
     `image` VARCHAR(191) NOT NULL,
 
