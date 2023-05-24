@@ -15,9 +15,18 @@
 			<section class="catalogueSetup text-center">
 				<div class="row">
 					{{#each itemsList}}
-					<div class="col-12 col-sm-6 col-lg-4 col-xl-3 catalogueItem">
+					<div class="col-12 col-sm-6 col-lg-4 col-xl-3 catalogueItem" data-iteminfo='{
+					"id": {{id}}, 
+					"sku": {{sku}},
+					"item_name": "{{item_name}}", 
+					"description": "{{description}}",
+					"item_category": "{{item_category}}",
+					"price": {{price}},
+					"discount": {{discount}},
+					"img": "{{image}}"
+				}'>
 						<p>{{item_name}}</p>
-						<img src="{{img}}" class="img-fluid groceryImg" data-bs-toggle="modal" data-bs-target="#catalogueItemModal">
+						<img src="{{image}}" class="img-fluid groceryImg" data-bs-toggle="modal" data-bs-target="#catalogueItemModal">
 					</div>
 					{{/each}}
 				</div>
@@ -32,6 +41,7 @@
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<form>
+					<input type="text" className="d-none" id="modalItemId" name="modalItemId" value="">
 					<div class="modal-body row">
 						<img src="/img/1to1ratio.png" id="modalImg" class="col-12">
 						<span class="col-12 text-center" id="modalName">Name</span>
@@ -42,8 +52,8 @@
 						<section class="d-flex">
 							<span class="col-6" id="modalDesc">Description</span>
 							<div class="col-6">
-								<input type="number" id="modalQty" placeholder="Quantity">
-								<button type="button" class="btn btn-primary">Add to Cart</button>
+								<input type="number" id="modalQty" name="modalQty" placeholder="Quantity">
+								<button type="button" class="btn btn-primary" id="modalSubmit" data-bs-dismiss="modal" onClick="{alert('Added item to cart!')}">Add to Cart</button>
 								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 							</div>
 						</section>

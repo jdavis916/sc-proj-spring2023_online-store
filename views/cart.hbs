@@ -20,13 +20,13 @@
   <section class="row cartMiddle2">
     {{#each items}}
       <figure class="col-sm-12 col-md-6 cartItem">
-        <img class="defaultImg" src="/img/1to1ratio.png" />
+        <img class="defaultImg" src="{{img}}" />
         <div class="cartItemInfo">
           <span>
-            Item Name
+            {{name}}
           </span>
           <span>
-            Price
+            {{price}}
           </span>
         </div>
         <input class="form-control qtySelector" type="number"/>

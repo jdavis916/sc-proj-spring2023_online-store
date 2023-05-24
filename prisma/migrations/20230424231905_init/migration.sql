@@ -22,3 +22,9 @@ CREATE TABLE `User` (
     UNIQUE INDEX `User_username_key`(`username`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+CREATE TABLE `Cart` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `items` VARCHAR(191),
+    PRIMARY KEY (`id`),
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

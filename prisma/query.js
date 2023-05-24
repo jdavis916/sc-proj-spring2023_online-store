@@ -3,8 +3,13 @@ const prisma = new PrismaClient()
 
 //4 functions that send and receive user and item data from the database
 export const getItems = async (req, res) => {
-    const items = await prisma.item.findMany()
-    res.send(items)
+    await prisma.item.findMany()
+    .then((data) => {
+        return data;
+    })
+    .catch((err) => {
+        console.log(err);
+    });
 }
 
 export const getUsers = async (req, res) => {

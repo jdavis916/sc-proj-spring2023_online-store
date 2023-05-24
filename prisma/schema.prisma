@@ -26,3 +26,8 @@ model User{
   username String @unique
   password String
 }
+
+model Cart{
+  id Int @id @default(autoincrement())
+  items String
+}
