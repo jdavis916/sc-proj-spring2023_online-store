@@ -50,7 +50,7 @@
 					"discount": {{discount}},
 					"img": "{{img}}"
 				}'>
-					<img src="{{img}}" class="img-fluid groceryImg" data-bs-toggle="modal" data-bs-target="#catalogueItemModal">
+					<img src="{{image}}" class="img-fluid groceryImg" data-bs-toggle="modal" data-bs-target="#catalogueItemModal">
 					<figcaption class="row">
 						<span class="col-12 itemNameIndexPage">{{item_name}}</span>
 						<div class="col-6">
@@ -58,7 +58,7 @@
 							<span>${{discount}}</span>
 						</div>
 						<input type="number" placerholer="Quantity" class="col-6">
-						<button type="button" class="btn btn-primary addCartButtonStyle">Add to Cart</button>
+						<button type="button" class="btn btn-primary addCartButtonStyle" onClick="{alert('Added item to cart!')}">Add to Cart</button>
 					</figcaption>
 				</div>
 			{{/each}}

@@ -56,7 +56,26 @@ window.addEventListener("load", (event)=>{
     document.cookie = `${document.cookie + JSON.stringify(cartData)+ '**'}`:
     document.cookie = `items=${JSON.stringify(cartData)+ '**'}`;
     console.table(document.cookie);
-  }): ''
+  }): '';
+  if(document.getElementsByClassName('pgHome')){
+    for(let i of document.getElementsByClassName('addCartButtonStyle')){
+      i.addEventListener("click", function(e) {
+        console.log(JSON.parse(this.parentNode.parentNode.dataset));
+        cartData = {
+          "img": this.parentNode.parentNode.dataset.iteminfo.img,
+          "id": this.parentNode.parentNode.dataset.iteminfo.id,
+          "sku": this.parentNode.parentNode.dataset.iteminfo.sku,
+          "name": this.parentNode.parentNode.dataset.iteminfo.item_name,
+          "price": this.parentNode.parentNode.dataset.iteminfo.price,
+          "desc": this.parentNode.parentNode.dataset.iteminfo.description,
+        }
+        document.cookie ? 
+        document.cookie = `${document.cookie + JSON.stringify(cartData)+ '**'}`:
+        document.cookie = `items=${JSON.stringify(cartData)+ '**'}`;
+        console.table(document.cookie);
+      })
+    }
+  }
 })
   
   
