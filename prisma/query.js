@@ -21,3 +21,29 @@ export const postUser = async (req, res) => {
     })
     res.send(user)
 }
+
+export const postData = async(data) =>{
+    //await prisma.item.deleteMany();
+    for(let i in data){
+        try{
+            await prisma.item.upsert({
+            where: {sku: data[i].sku},
+            update: {},
+            create: {
+                sku: data[i].sku,
+                item_name: data[i].item_name,
+                description: data[i].description,
+                item_category: data[i].item_category,
+                price: data[i].price,
+                discount: data[i].discount,
+                image: data[i].image
+            }
+        })
+        }catch(e){
+            console.log(e)
+        }
+    }
+}
+/*const populate = async(data[i]) =>{
+    
+}*/
