@@ -37,19 +37,22 @@
     {{/each}}
   </section>
   <!--Order Summary Section-->
-  <section  class="row text-center rowTB10">
+  <form action="/thanks" method="POST" class="row text-center rowTB10">
+    <input type="text" name="total" value="{{total}}" class="d-none">
+    <input type="text" name="qty" value="{{qty}}" class="d-none">
+    <input type="text" name="items" value="{{itemsData}}" class="d-none">
     <div class="col-12">
       <label>Order Summary</label>
     </div>
     <div class="col-12 col-md-9 orderSummaryLabels">
       <div class="row">
-        <span class="col-md-4"># of Items</span>
-        <span class="col-md-4">Discounts</span>
-        <span class="col-md-4">Total:</span>
+        <span class="col-md-4"># of Items: {{qty}}</span>
+        <span class="col-md-4">Discounts: $0</span>
+        <span class="col-md-4">Total: {{total}}</span>
       </div>
     </div>
     <div class="col-12 col-md-3 checkoutButton">
-      <button type="submit" class="btn btn-success">Checkout</button>
+      <button type="submit" class="btn btn-success" {{disabled}}>Checkout</button>
     </div>
-  </section>
-</main>1
+  </form>
+</main>

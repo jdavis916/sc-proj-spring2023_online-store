@@ -1,5 +1,3 @@
-//const stubs = require("../stubs/stubs");
-import { stubs } from "../stubs/stubs";
 import { PrismaClient } from '@prisma/client';
 import * as DB from "../prisma/query"; //db query functions
 import { raw } from "body-parser";
@@ -7,22 +5,15 @@ const prisma = new PrismaClient();
 var express = require('express');
 var router = express.Router();
 
-//Initialize Cart
-/*(async()=>{
-	await prisma.cart.upsert({
-		where: {id: 1},
-		update:{},
-		create: {items: ''}
-	})
-})()*/
 /* GET home page */
 router
-.get('/', function(req, res, next) {
-  res.render('index', { 
+.get('/', async function(req, res, next) {
+	const dbItems = (await prisma.item.findMany()).slice(0,8);
+  	res.render('index', { 
   	title: 'Simple Node Template',
   	msg: 'This sample template should help get you on your way.',
   	pageMainClass: 'pgHome',
-	  itemsList: [...stubs.items, ...stubs.items]
+	itemsList: dbItems
   });
 })
 //catalogue page
@@ -39,16 +30,16 @@ router
 })
 //cart page
 .get("/cart", (req, res, next)=> {
-	let cartItems = [];
-	let rawCookieDough = req.cookies.items.replace('items=', '').slice(0, -2);
-	console.log(rawCookieDough);
-	rawCookieDough.split('**').forEach((i)=>cartItems.push(JSON.parse(i)));
-	console.log(cartItems);
+	let data = cartAssemble(req) ?? {items: [], total: 0, qty: 0, disabled: 'disabled'}; //gather the data for the cart, or set to default if undefined
 	res.render("cart", {
 		title: 'Cart',
 		msg: 'Cart page.',
 		pageMainClass: 'pgCart',
-		items: cartItems
+		items: data.items,
+		total: data.total,
+		qty: data.qty,
+		itemsData: JSON.stringify(data.items),
+		disabled: data.disabled
 	})
 })
 //contact page
@@ -68,25 +59,33 @@ router
 		itemsList: stubs.items
 	})
 })
-/*.post("/catalogue", async (req, res, next)=> {
-	console.log(req.body);
-	let addedItem = req.body.modalItemId + ':' + req.body.modalQty + ';';
-	//await prisma.cart.deleteMany();
-	/*await prisma.cart.findFirst({}).then(async (data)=>{
-		await prisma.cart.update({
-			where: {id: 1},
-			data: {items: data.items + addedItem}
-		})
-	})
-	const dbItems = await prisma.item.findMany();
-	const renderObj = {
-		title: 'Catalogue',
-		msg: 'Catalogue page.',
-		pageMainClass: 'pgCatalogue',
-		itemsList: dbItems
+.post("/thanks", (req, res, next)=> {
+	res.clearCookie('items');
+	res.render("thankYou", {
+		title: 'Thank You',
+		msg: 'Thank you for your submission.',
+		pageMainClass: 'pgThankYou'
+	});
+})
+
+const cartAssemble = (req)=>{ 
+	let cartItems = []; //cart list
+	let total = 0; //total price
+	let qty = 0; //total quantity
+	if(!req.cookies.items)return; //if cookie is empty
+	let rawCookieDough = req.cookies.items.replace('items=', '').slice(0, -2); //cleaning up the cookie
+	rawCookieDough.split('**').forEach((i)=>{
+		let temp = JSON.parse(i);
+		total += +temp.price * +temp.qty;
+		qty += +temp.qty;
+		cartItems.push(temp)
+	}); //parse the cookie and push to cart list
+	return {
+		items: cartItems,
+		total: total,
+		qty: qty,
+		disabled: ''
 	};
-	res.render("catalogue", renderObj);
-})*/
-;
+};
 
 module.exports = router;
