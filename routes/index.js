@@ -5,6 +5,17 @@ const prisma = new PrismaClient();
 var express = require('express');
 var router = express.Router();
 
+function createDropdownList(num) {
+	let arr = [];
+
+	for (let i = 1; i <= num; i++) {
+		arr.push({
+			val: i
+		})
+	}
+
+	return arr;
+}
 /* GET home page */
 router
 .get('/', async function(req, res, next) {
@@ -13,7 +24,8 @@ router
   	title: 'Simple Node Template',
   	msg: 'This sample template should help get you on your way.',
   	pageMainClass: 'pgHome',
-	itemsList: dbItems
+	itemsList: dbItems,
+	dropdownOne: createDropdownList(10)
   });
 })
 //catalogue page

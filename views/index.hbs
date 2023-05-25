@@ -52,13 +52,21 @@
 				}'>
 					<img src="{{image}}" class="img-fluid groceryImg" data-bs-toggle="modal" data-bs-target="#catalogueItemModal">
 					<figcaption class="row">
-						<span class="col-12 itemNameIndexPage">{{item_name}}</span>
-						<div class="col-6">
+						<div class="col-12">
+							<span class="itemNameIndexPage">{{item_name}}</span>
+						</div>
+						<div class="col-12">
 							<del>${{price}}</del>
 							<span>${{discount}}</span>
 						</div>
-						<input type="number" placerholer="Quantity" class="col-6">
-						<button type="button" class="btn btn-primary addCartButtonStyle" onClick="{alert('Added item to cart!')}">Add to Cart</button>
+						<select placerholer="Quantity" class="col-12 selectCenter">
+							{{#each ../dropdownOne}}
+								<option value="{{val}}">{{val}}</option>
+							{{/each}}
+						</select>
+						<div class="col-12 dealBtn">
+							<button type="button" class="btn btn-primary addCartButtonStyle" onClick="{alert('Added item to cart!')}">Add to Cart</button>
+						</div>
 					</figcaption>
 				</div>
 			{{/each}}
