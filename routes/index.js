@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 var express = require('express');
 var router = express.Router();
 
-function createDropdownList(num) {
+function createDropdownList(num) { //create a dropdown list of numbers
 	let arr = [];
 
 	for (let i = 1; i <= num; i++) {
@@ -25,18 +25,19 @@ router
   	msg: 'This sample template should help get you on your way.',
   	pageMainClass: 'pgHome',
 	itemsList: dbItems,
-	dropdownOne: createDropdownList(10)
+	dropdownOne: createDropdownList(10) //create a dropdown list of numbers
   });
 })
 //catalogue page
 .get("/catalogue", async (req, res, next)=> {
 	console.log(req.body);
-	const dbItems = await prisma.item.findMany();
+	const dbItems = await prisma.item.findMany(); //get all items from the database
 	const renderObj = {
 		title: 'Catalogue',
 		msg: 'Catalogue page.',
 		pageMainClass: 'pgCatalogue',
-		itemsList: dbItems
+		itemsList: dbItems,
+		categories: ['Dairy', 'Meat', 'Bakery', 'Frozen', 'Snacks', 'Kitchen Gadgets', 'Candy','Sauces','Spices']
 	};
 	res.render("catalogue", renderObj);
 })
@@ -50,7 +51,7 @@ router
 		items: data.items,
 		total: data.total,
 		qty: data.qty,
-		itemsData: JSON.stringify(data.items),
+		itemsData: JSON.stringify(data.items), //stringify the data for the cookie to pass to thank you page
 		disabled: data.disabled
 	})
 })
@@ -71,7 +72,7 @@ router
 		itemsList: stubs.items
 	})
 })
-.post("/thanks", (req, res, next)=> {
+.post("/thanks", (req, res, next)=> { //thank you page
 	res.clearCookie('items');
 	res.render("thankYou", {
 		title: 'Thank You',
@@ -86,13 +87,13 @@ const cartAssemble = (req)=>{
 	let qty = 0; //total quantity
 	if(!req.cookies.items)return; //if cookie is empty
 	let rawCookieDough = req.cookies.items.replace('items=', '').slice(0, -2); //cleaning up the cookie
-	rawCookieDough.split('**').forEach((i)=>{
-		let temp = JSON.parse(i);
-		temp.qty ? qty += +temp.qty : qty += 1;
-		total += +temp.price * qty;
-		cartItems.push(temp)
+	rawCookieDough.split('**').forEach((i)=>{ //for each cart item
+		let temp = JSON.parse(i); //turn it to an object
+		temp.qty ? qty += +temp.qty : qty += 1; //if qty is defined, add it to the qty total, otherwise add 1
+		total += +temp.price * qty; //add the price of the item to the total
+		cartItems.push(temp) //push the item to the cart list
 	}); //parse the cookie and push to cart list
-	return {
+	return { //return the data
 		items: cartItems,
 		total: total,
 		qty: qty,

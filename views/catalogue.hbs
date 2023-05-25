@@ -1,15 +1,26 @@
-<main class="container-fluid {{pageMainClass}}">
+<main class="container-fluid {{pageMainClass}}" id="{{pageMainClass}}">
 	<section class="row">
 		<div class="col-12">
-			<section class="row filterSearch">
-				<form action="/getCatalogueItems" method="POST">
-					<input type="text" name="search" value="" placeholder="Search Term" class="col-12 col-sm-5">
-					<select aria-placeholder="Filters" class="col-12 col-sm-4 filtersBar">
-						<option>
-							Filters
-						</option>
-					</select>
-					<button type="submit" class="col btn searchBtn btn-outline-info">Submit</button>
+			<section class="row">
+				<form action="/getCatalogueItems" method="POST" class="col-12 filterSearch">
+					<h2 class="text-center py-3">Browse Our Catalogue!</h2>
+					<div class="row filterFields">
+						<div class="col-sm-12 col-md-6">
+							<input type="text" name="search" value="" placeholder="Search Term" class="col-12 col-sm-5 form-control" id="searchTerm">
+						</div>
+						<div class="col-sm-12 col-md-6">
+							<select aria-placeholder="Filters" class="form-select filtersBar" id="categorySelect">
+								<option value="" selected>Filter by Category</option>
+								{{#each categories}}
+								<option>
+									{{this}}
+								</option>
+								{{/each}}
+							</select>
+						</div>
+					</div>
+					
+					<!--<button type="submit" class="col btn searchBtn btn-outline-info">Submit</button>-->
 				</form>
 			</section>
 			<section class="catalogueSetup text-center">
@@ -25,8 +36,13 @@
 					"discount": {{discount}},
 					"img": "{{image}}"
 				}'>
-						<p>{{item_name}}</p>
-						<img src="{{image}}" class="img-fluid groceryImg" data-bs-toggle="modal" data-bs-target="#catalogueItemModal">
+						<h3>{{item_name}}</h3>
+						<img src="{{image}}" class="img-fluid mb-3 groceryImg">
+						<div>
+							<span>Price:</span>
+							<span class="price">${{price}}</span>
+						</div>
+						<button type="button" class="btn btn-primary addCartButtonStyle" data-bs-toggle="modal" data-bs-target="#catalogueItemModal">Add to Cart</button>
 					</div>
 					{{/each}}
 				</div>
@@ -43,17 +59,17 @@
 				<form>
 					<!--<input type="text" className="d-none" id="modalItemId" name="modalItemId" value="">-->
 					<div class="modal-body row">
-						<img src="/img/1to1ratio.png" id="modalImg" class="col-12">
-						<span class="col-12 text-center" id="modalName">Name</span>
+						<img src="/img/1to1ratio.png" id="catamodalImg" class="col-12">
+						<span class="col-12 text-center" id="catamodalName">Name</span>
 						<section class="d-flex justify-content-between">
-							<span class="col-6" id="modalSku">#Sku</span>
-							<span class="col-6" id="modalPrice">$Price</span>
+							<span class="col-6" id="catamodalSku">#Sku</span>
+							<span class="col-6" id="catamodalPrice">$Price</span>
 						</section>
 						<section class="d-flex">
-							<span class="col-6" id="modalDesc">Description</span>
+							<span class="col-6" id="catamodalDesc">Description</span>
 							<div class="col-6">
-								<input type="number" id="modalQty" name="modalQty" placeholder="Quantity">
-								<button type="button" class="btn btn-primary" id="modalSubmit" data-bs-dismiss="modal" onClick="{alert('Added item to cart!')}">Add to Cart</button>
+								<input type="number" id="catamodalQty" name="modalQty" placeholder="Quantity">
+								<button type="button" class="btn btn-primary" id="catamodalSubmit" data-bs-dismiss="modal" onClick="{alert('Added item to cart!')}">Add to Cart</button>
 								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 							</div>
 						</section>
