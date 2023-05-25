@@ -1,4 +1,4 @@
-<main class="container {{pageMainClass}}">
+<main class="container {{pageMainClass}}" id="{{pageMainClass}}">
   <section class="row">
     <div class="col-12 cartHeader">
       <h1 class="text-center">Your Cart</h1>
@@ -7,11 +7,11 @@
       <section class="row">
         <div class="col-12 col-sm-6 text-center padB10">
           <label>Quantity</label><br>
-          <span>Num</span>
+          <span>{{qty}}</span>
         </div>
         <div class="col-12 col-sm-6 text-center">
           <label>Subtotal</label><br>
-          <span>$0.00</span>
+          <span>{{total}}</span>
         </div>
       </section>
     </div>
@@ -21,17 +21,19 @@
     {{#each items}}
       <figure class="col-sm-12 col-md-6 cartItem">
         <img class="defaultImg" src="{{img}}" />
-        <div class="cartItemInfo">
-          <span>
-            {{name}}
-          </span>
-          <span>
-            {{price}}
-          </span>
+        <div class="cartItemInfo row">
+          <article class="col-12">
+            <span class="">
+              {{name}}
+            </span>
+            <span class="">|</span>
+            <span class="">
+              {{price}}
+            </span>
+          </article>
         </div>
-        <input class="form-control qtySelector" type="number"/>
         <div class="text-center my-auto">
-          <input type="checkbox" class="itemConfirm"/>
+          <button class="btn btn-danger remBtn">Remove</button>
         </div>
       </figure>
     {{/each}}

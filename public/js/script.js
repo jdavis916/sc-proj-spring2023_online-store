@@ -1,100 +1,90 @@
-//import { start } from "repl";
-
-//logic for shopping cart
-
-//get stub items indexed
-
-/*
-//place list elements into an ul element in the html
-let text = "<ul>";
-stubs.items.item_name.forEach(myFunction);
-text += "</ul>";
-
-//have each indexed item placed under a list element
-function itemList(stubs.items) {
-  text += "<li>" + value + "</li>";
-}
-//get items as a list
-
-*/
-
-//get item price from a list
-
-//subtotal item price and quantity
-
-//total items with tax / simple * %
 window.addEventListener("load", (event)=>{
-  let cartData;
-  var groceryItems = document.getElementsByClassName('groceryImg') ?? {};
-  for (let i = 0; i < groceryItems.length; i++) {
-    groceryItems[i] ? groceryItems[i].addEventListener("click", function(e) {
-      let groceryData = JSON.parse(JSON.parse(JSON.stringify(groceryItems[i].parentElement.dataset.iteminfo)));
-      buildModal(groceryData);
-    }) : ""
+  let cartData; //holder for cart data
+
+  const buildModal = (data, prefix) => { //build modals
+    console.log(data);
+    document.getElementById(prefix + 'Img').src = data.img;
+    //document.getElementById(prefix + 'ItemId').value = data.id;
+    document.getElementById(prefix + 'Sku').innerHTML = data.sku;
+    document.getElementById(prefix + 'Name').innerHTML = data.item_name;
+    document.getElementById(prefix + 'Price').innerHTML = data.price;
+    document.getElementById(prefix + 'Desc').innerHTML = data.description;
   }
 
-  const buildModal = (data)=> {
-    console.log(data);
-    document.getElementById('modalImg').src = data.img;
-    document.getElementById('modalItemId').value = data.id;
-    document.getElementById('modalSku').innerHTML = data.sku;
-    document.getElementById('modalName').innerHTML = data.item_name;
-    document.getElementById('modalPrice').innerHTML = data.price;
-    document.getElementById('modalDesc').innerHTML = data.description;
-  }
-  document.getElementById('modalSubmit') ?
-  document.getElementById('modalSubmit').addEventListener("click", function(e) {
-    cartData = {
-      "img": document.getElementById('modalImg').src,
-      "id": document.getElementById('modalItemId').value,
-      "sku": document.getElementById('modalSku').innerHTML,
-      "name": document.getElementById('modalName').innerHTML,
-      "price": document.getElementById('modalPrice').innerHTML,
-      "desc": document.getElementById('modalDesc').innerHTML,
-      "qty": document.getElementById('modalQty').value
-    }
+  const buildCookie = (data)=> {  //build cookies
     document.cookie ? 
-    document.cookie = `${document.cookie + JSON.stringify(cartData)+ '**'}`:
-    document.cookie = `items=${JSON.stringify(cartData)+ '**'}`;
-  }): '';
-  if(document.getElementsByClassName('pgHome')){
+    document.cookie = `${document.cookie + JSON.stringify(data)+ '**'}`:
+    document.cookie = `items=${JSON.stringify(data)+ '**'}`;
+  } 
+
+  const filterData = (data, term, filter) => { //filter data
+    console.log('filtering');
+    if(term === '' && filter === '')return; //guard clasue for no input
+    let cat = filter.replace(' ', '_').toLowerCase(); //convert the category to match data in attribute
+    let title = new RegExp(term, 'gi'); //create a regex for the search term
+    for(let i = 0; i < data.length; i++){
+      let tags = JSON.parse(data[i].dataset.iteminfo); //get the tags from the data attribute
+      console.log(tags);
+      title.test(tags.item_name) && tags.item_category === cat ? 
+        (data[i].style.display = "block", console.log('should match some items')): data[i].style.display = "none"; //if the filter matches the name and category, display it
+    }
+  }
+
+  if(document.getElementById('pgCatalogue')){ //catalogue page exclusive javascript
+    (()=>{ //add event listeners to each grocery image
+      var groceryItems = document.getElementsByClassName('groceryImg') ?? {};
+      let groceryBtns = document.getElementsByClassName('addCartButtonStyle') ?? {};
+      for (let i = 0; i < groceryBtns.length; i++) {
+        groceryItems[i] ? groceryBtns[i].addEventListener("click", function(e) {
+          let groceryData = JSON.parse(JSON.parse(JSON.stringify(groceryItems[i].parentElement.dataset.iteminfo)));
+          buildModal(groceryData, 'catamodal');
+        }) : ""
+      }
+    })();
+    document.getElementById('catamodalSubmit').addEventListener("click", function(e) { //add event listener to modal submit button
+      cartData = {
+        "img": document.getElementById('catamodalImg').src,
+        //"id": document.getElementById('catamodalItemId').value,
+        "sku": document.getElementById('catamodalSku').innerHTML,
+        "name": document.getElementById('catamodalName').innerHTML,
+        "price": document.getElementById('catamodalPrice').innerHTML,
+        "desc": document.getElementById('catamodalDesc').innerHTML,
+        "qty": document.getElementById('catamodalQty').value
+      }
+      buildCookie(cartData);
+    })
+    document.getElementById('searchTerm').addEventListener("change", function(e) { //add event listener to search bar
+      filterData(document.getElementsByClassName('catalogueItem'), e.target.value, document.getElementById('categorySelect').value);
+    }) 
+    document.getElementById('categorySelect').addEventListener("change", function(e) {//add event listener to category select
+      filterData(document.getElementsByClassName('catalogueItem'), document.getElementById('searchTerm').value, e.target.value);
+    }) 
+  }
+
+  if(document.getElementById('pgHome')){ //home page exclusive javascript
     for(let i of document.getElementsByClassName('addCartButtonStyle')){
-      console.log('yo');
       i.addEventListener("click", function(e) {
         console.log();
         cartData = {
-          "img": JSON.parse(this.parentNode.parentNode.dataset.iteminfo).img,
-          "id": JSON.parse(this.parentNode.parentNode.dataset.iteminfo).id,
-          "sku": JSON.parse(this.parentNode.parentNode.dataset.iteminfo).sku,
-          "name": JSON.parse(this.parentNode.parentNode.dataset.iteminfo).item_name,
-          "price": JSON.parse(this.parentNode.parentNode.dataset.iteminfo).price,
-          "desc": JSON.parse(this.parentNode.parentNode.dataset.iteminfo).description,
+          "img": JSON.parse(this.parentNode.parentNode.parentNode.dataset.iteminfo).img,
+          "id": JSON.parse(this.parentNode.parentNode.parentNode.dataset.iteminfo).id,
+          "sku": JSON.parse(this.parentNode.parentNode.parentNode.dataset.iteminfo).sku,
+          "name": JSON.parse(this.parentNode.parentNode.parentNode.dataset.iteminfo).item_name,
+          "price": JSON.parse(this.parentNode.parentNode.parentNode.dataset.iteminfo).price,
+          "desc": JSON.parse(this.parentNode.parentNode.parentNode.dataset.iteminfo).description,
+          "qty": this.parentNode.previousSibling.previousSibling.value
         }
-        document.cookie ? 
-        document.cookie = `${document.cookie + JSON.stringify(cartData)+ '**'}`:
-        document.cookie = `items=${JSON.stringify(cartData)+ '**'}`;
-        console.table(document.cookie);
+        buildCookie(cartData);
       })
     }
+
   }
+
+  if(document.getElementById('pgCart')){//cart page exclusive javascript
+    for(let i of document.getElementsByClassName('remBtn')){//add event listeners to remove buttons
+      i.addEventListener("click", function(e) {
+        e.target.parentNode.parentNode.style.display = "none"; //hide the item for now, doesnt completely remove
+      })
+    } 
+  } 
 })
-  
-  
-  
-  /*
-  {
-    var modalImg = document.getElementById("img01");
-    var captionText = document.getElementById("caption");
-    image.onclick = function(){
-      modal.style.display = "block";
-      modalImg.src = this.src;
-      captionText.innerHTML = this.alt;
-    }
-
-    var span = document.getElementsByClassName("close")[0];
-
-    span.onclick = function() { 
-      modal.style.display = "none";
-    }
-});
-*/

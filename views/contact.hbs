@@ -1,63 +1,61 @@
-<main class="container-fluid {{pageMainClass}}">
-	<section class="row formSubmitCss contactTBCss">
-		<form class="validate-form col-12 col-md-6">
+<main class="container-fluid {{pageMainClass}}" id="{{pageMainClass}}">
+	<section class="row gx-5 formSubmitCss contactTBCss">
+		<form class="validate-form col-12 col-md-4 offset-md-2">
 			<h2 class="contactPageHeaders">
 			Contact Us
 			</h2>
 			<section class="row" style="padding: 15px 0;">
 				<div class="validate-input col-12 col-md-6" data-validate="Name is required">
 					<span>First Name:</span>
-					<input type="text" name="name" class="col-12">
+					<input type="text" name="name" class="col-12 form-control">
 				</div>
 				<div class="validate-input col-12 col-md-6" data-validate="Name is required">
 					<span>Last Name:</span>
-					<input type="text" name="name" class="col-12">
+					<input type="text" name="name" class="col-12 form-control">
 				</div>
 			</section>
 			<section class="row" style="padding: 15px 0;">
 				<div class="col-12 col-md-6">
 					<span>Phone:</span>
-					<input type="number" name="phone" class="col-12">
+					<input type="number" name="phone" class="col-12 form-control">
 				</div>
 				<div class="validate-input col-12 col-md-6" data-validate="Valid email is required: ex@abc.xyz">
 					<span>Email:</span>
-					<input type="text" name="email" class="col-12">
+					<input type="text" name="email" class="col-12 form-control">
 				</div>
 			</section>
 			<div class="row" style="padding: 15px 0;">
 				<span>Subject:</span>
 				<div>
-					<select class="selection-2 select2-hidden-accessible" name="service" tabindex="-1" aria-hidden="true">
+					<select class="selection-2 select2-hidden-accessible form-select" name="service" tabindex="-1" aria-hidden="true">
 					<option>
 						Select a subject
 					</option>
 					</select>
 				</div>
 			</div>
-			<div class="wrap-input100 validate-input row" data-validate="Message is required" style="padding: 15px 0;">
+			<div class="row wrap-input100 validate-input w-80" data-validate="Message is required" style="padding: 15px 0;">
 				<span class="label-input100">Message:</span>
-				<textarea class="input100" name="message" class="col-12">
-					
+				<textarea class="input100 form-control" name="message" class="col-12">
 				</textarea>
 				<span class="focus-input100"></span>
 			</div>
 			<div class="container-contact100-form-btn">
 				<div class="wrap-contact100-form-btn">
-				<div class="contact100-form-bgbtn"></div>
-				<button class="contact100-form-btn">Send</button>
+				<button class="btn btn-primary contact100-form-btn">Send</button>
 				</div>
 			</div>
 		</form>
-		<section class="col-12 col-md-6 contactTBCss contactInfo">
+		<section class="col-12 col-md-4 contactTBCss contactInfo">
+			<h2 class="contactPageHeaders">Contact Info</h2>
 			<section class="row">
-				<h2 class="contactPageHeaders col-12">Contact Info</h2>
-				<div class="col-12 col-md-6">
+				<div class="col-12">
 					<figure class="placeholder" style="padding-top: 15px;">Address:</figure>
 					<figure class="placeholder">1234 Placeholder Dr.</figure>
 					<figure class="placeholder" style="padding-top: 15px;">Phone Number:</figure>
 					<figure class="placeholder">333-333-3333</figure>
 				</div>
-				<div class="col-12 col-md-6">
+				<div class="col-12">
 					<figure class="placeholder" style="padding-top: 15px;">Email:</figure>
 					<figure class="placeholder">a@b.org</figure>
 					<figure class="placeholder" style="padding-top: 15px;">Hours:</figure>

@@ -23,8 +23,8 @@ main{
   margin: 25px 0;
   max-width: 80vw;
 }
-main > section, section > figure {
-  border: 1px solid var(--accent-teal);
+main > section, section > figure, .rowTB10 {
+  border: 3px solid var(--accent-teal);
 }
 h1,h2,h3{
   font-family: var(--secondary-font);
@@ -36,7 +36,45 @@ header, footer{
 }
 .navbar-dark .navbar-nav .nav-link.navColor {
   color: #FFFFFF;
+  font-size: 1.4rem;
 }
+.navii{
+  width: 50%;
+}
+.navItems{
+  width: 50%;
+  text-align: right;
+}
+
+.heroPanel{
+  border: none;
+  margin-bottom: 20px;
+}
+.cta{
+  left: 5%;
+  top: 50%;
+  text-align:left;
+  width: 50%;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: saturate(180%) blur(10px);
+  padding: 15px;
+  border-radius: 10px;
+}
+.ctaTitle{
+  font-size: 3rem;
+  font-family: var(--secondary-font);
+}
+.ctaText{
+  margin: auto;
+}
+.dealItem{
+  padding: 15px;
+  border: 1px solid var(--accent-teal);
+}
+/*.car1{
+  background-image: url('https://scfinalwinter2023.s3.amazonaws.com/item_img/cartGroc.png');
+  background-size: cover;
+}*/
 /*a {
   color: #00B7FF;
 }*/
@@ -56,7 +94,11 @@ display this section inline
   color: white;
 }
 /*Home Page Styles*/
-.groceryImg {
+.hero{
+  max-height: 600px;
+  padding: 0;
+}
+.groceryImg, .homeGroceryImg {
   max-width: 150px;
   height: auto;
   object-fit: cover;
@@ -91,17 +133,23 @@ display this section inline
   list-style-type: square;
 }
 .cartItem, .cartItemInfo {
-  display: flex;
-  padding-top: 20px;
   padding-bottom: 20px;
 }
 .cartItem {
+  display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.cartItem > * {
+  margin: auto;
 }
 .cartItemInfo {
   flex-direction: column;
 }
 .defaultImg {
+  max-width: 400px;
+  height: auto;
   padding-left: 10px;
   padding-right: 15px;
 }
@@ -124,6 +172,7 @@ display this section inline
   padding-top: 15px;
 }
 .dealsListClass .row, .catalogueSetup .row {
+  padding: 15px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -192,8 +241,26 @@ display this section inline
 /*Catalogue Page Styles*/
 .filterSearch {
   padding: 30px 0;
-  border-style: solid;
-  border-width: 1px;
+  margin: auto;
+  width: 50%;
+}
+.filterSearch, .filterSearch h2{
+  border-bottom: 1px solid var(--accent-teal);
+}
+.filterSearch div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.filterSearch div input, .filterSearch div select{
+  height: 40px;
+  width: 200px;
+  margin: auto;
+}
+.filterFields{
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
 }
 .catalogueItem {
   padding: 20px 0;
@@ -211,13 +278,20 @@ display this section inline
   padding: 10px 0;
 }
 .contactTBCss {
-  background-color: #dddddd;
+  border: none;
 }
-.formSubmitCss, .contactInfo {
-  border: 1px solid var(--accent-teal);
+.contactTBCss > form, .contactTBCss > section {
+  background-color: #dddddd;
+  padding: 15px;
+}
+.contactTBCss > form{
+}
+.contactTBCss > form textarea{
+  width: 95%;
+  margin: auto;
 }
 .contactInfo {
-  display: flex;
+  
 }
 /*Search Page Styles*/
 .listSearch, .searchBar {
@@ -241,18 +315,16 @@ display this section inline
   .padB10 {
     padding-bottom: 0;
   }
-  .cartItem {
-    flex-direction: row;
-  }
+  
   .groceryImg {
     max-width: 256px;
   }
 }
 @media (min-width: 768px) {
   .carousel-item img {
-    max-height: 300px;
+    max-height: 600px;
     width: auto;
-    max-width: 720px;
+    /*max-width: 720px;*/
     margin: 0 auto;
   }
   .footerLeft {

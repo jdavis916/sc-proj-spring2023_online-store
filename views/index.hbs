@@ -1,7 +1,7 @@
-<main class="container {{pageMainClass}}">
-	<section class="row">
-		<div class="col-12 offset-lg-1 col-lg-10">
-			<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+<main class="container {{pageMainClass}}" id="{{pageMainClass}}">
+	<section class="row heroPanel">
+		<div class="col-12 w-100 col-lg-10 hero">
+			<div id="carouselExampleCaptions" class="carousel slide w-100" data-bs-ride="carousel">
 				<div class="carousel-indicators">
 					<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
 					<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -9,18 +9,33 @@
 				</div>
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<img src="/img/img_800x600.png" class="d-block w-100 h-auto" alt="...">
-						<div class="carousel-caption d-none d-md-block">
+						<img src="https://scfinalwinter2023.s3.amazonaws.com/item_img/cartGroc.png" class="d-block w-100 h-auto" alt="...">
+						<div class="carousel-caption d-none d-md-block cta">
+							<article class="ctaText">
+								<span class="ctaTitle">Call To Action!</span>
+								<p>CTA text down here, like: 70% off Cheese! Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+								<a href="/catalogue"><button type="button" class="btn btn-primary">Shop Now</button></a>
+							</article>
 						</div>
 					</div>
 					<div class="carousel-item">
-						<img src="/img/img_800x600.png" class="d-block w-100 h-auto" alt="...">
-						<div class="carousel-caption d-none d-md-block">
+						<img src="https://scfinalwinter2023.s3.amazonaws.com/item_img/pcShop.png" class="d-block w-100 h-auto" alt="...">
+						<div class="carousel-caption d-none d-md-block cta">
+							<article class="ctaText">
+								<span class="ctaTitle">Call To Action!</span>
+								<p>CTA text down here, like: 70% off Cheese! Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+								<a href="/catalogue"><button type="button" class="btn btn-primary">Shop Now</button></a>
+							</article>
 						</div>
 					</div>
 					<div class="carousel-item">
-						<img src="/img/img_800x600.png" class="d-block w-100 h-auto" alt="...">
-						<div class="carousel-caption d-none d-md-block">
+						<img src="https://scfinalwinter2023.s3.amazonaws.com/item_img/ladyShop.png" class="d-block w-100 h-auto" alt="...">
+						<div class="carousel-caption d-none d-md-block cta">
+							<article class="ctaText">
+								<span class="ctaTitle">Call To Action!</span>
+								<p>CTA text down here, like: 70% off Cheese! Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+								<a href="/catalogue"><button type="button" class="btn btn-primary">Shop Now</button></a>
+							</article>
 						</div>
 					</div>
 				</div>
@@ -36,11 +51,13 @@
 		</div>
 	</section>
 	<section class="dealsListClass text-center row">
+		<div class="col-12 mb-5">
+			<h2>Today's Deals</h2>
+		</div>
 		<div class="col-12">
-			<span>Sales/Deals</span>
 			<div class="row">
 			{{#each itemsList}}
-				<div class="col-12 col-sm-6 col-lg-4 col-xl-3" id="{{id}}" data-iteminfo='{
+				<div class="col-12 col-sm-6 col-lg-4 col-xl-3 dealItem" id="{{id}}" data-iteminfo='{
 					"id": {{id}}, 
 					"sku": {{sku}},
 					"item_name": "{{item_name}}", 
@@ -50,7 +67,7 @@
 					"discount": {{discount}},
 					"img": "{{image}}"
 				}'>
-					<img src="{{image}}" class="img-fluid groceryImg" data-bs-toggle="modal" data-bs-target="#catalogueItemModal">
+					<img src="{{image}}" class="img-fluid homeGroceryImg" data-bs-toggle="modal" data-bs-target="#catalogueItemModal">
 					<figcaption class="row">
 						<div class="col-12">
 							<span class="itemNameIndexPage">{{item_name}}</span>
@@ -59,7 +76,7 @@
 							<del>${{price}}</del>
 							<span>${{discount}}</span>
 						</div>
-						<select placerholer="Quantity" class="col-12 selectCenter">
+						<select placerholer="Quantity" class="col-12 form-select selectCenter">
 							{{#each ../dropdownOne}}
 								<option value="{{val}}">{{val}}</option>
 							{{/each}}
@@ -73,7 +90,7 @@
 			</div>
 		</div>
 	</section>
-	<div class="modal" id="catalogueItemModal" tabindex="-1">
+	<div class="modal" id="homeItemModal" tabindex="-1">
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -82,17 +99,17 @@
 				</div>
 				<form>
 					<div class="modal-body row">
-						<img src="/img/1to1ratio.png" id="modalImg" class="col-12">
-						<span class="col-12 text-center" id="modalName">Name</span>
+						<img src="/img/1to1ratio.png" id="homemodalImg" class="col-12">
+						<span class="col-12 text-center" id="homemodalName">Name</span>
 						<section class="d-flex justify-content-between">
-							<span class="col-6" id="modalSku">#Sku</span>
-							<span class="col-6" id="modalPrice">$Price</span>
+							<span class="col-6" id="homemodalSku">#Sku</span>
+							<span class="col-6" id="homemodalPrice">$Price</span>
 						</section>
 						<section class="d-flex justify-content-between modalDescription">
-							<span class="col-6" id="modalDesc">Description</span>
+							<span class="col-6" id="homemodalDesc">Description</span>
 							<div class="col-6">
-								<input type="number" id="modalQty" placeholder="Quantity">
-								<button type="button" class="btn btn-primary">Add to Cart</button>
+								<input type="number" id="homemodalQty" placeholder="Quantity">
+								<button type="button" class="btn btn-primary" id="homemodalSubmit">Add to Cart</button>
 								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 							</div>
 						</section>
