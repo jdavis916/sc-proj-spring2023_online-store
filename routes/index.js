@@ -76,8 +76,8 @@ const cartAssemble = (req)=>{
 	let rawCookieDough = req.cookies.items.replace('items=', '').slice(0, -2); //cleaning up the cookie
 	rawCookieDough.split('**').forEach((i)=>{
 		let temp = JSON.parse(i);
-		total += +temp.price * +temp.qty;
-		qty += +temp.qty;
+		temp.qty ? qty += +temp.qty : qty += 1;
+		total += +temp.price * qty;
 		cartItems.push(temp)
 	}); //parse the cookie and push to cart list
 	return {
